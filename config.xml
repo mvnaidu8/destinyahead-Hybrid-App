@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "in.destinyahead.app"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Destinyahead.in</name>
+
+  <description>
+      Hybrid App for your favourite site.
+  </description>
+
+  <author href="https://destinyahead.in" email="mvn@destinyahead.in">
+      M Venkat Naidu
+  </author>
+  <platform name="android" />
+  <icon src="icon.png" />
+  <splash src="splash.png" />
+</widget>
