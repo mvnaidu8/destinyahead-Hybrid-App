@@ -16,6 +16,7 @@
   <author href="https://destinyahead.in" email="mvn@destinyahead.in">
       M Venkat Naidu
   </author>
+   <allow-intent href="*" />
   <platform name="android" />
   <icon src="icon.png" />
   <splash src="splash.png" />
