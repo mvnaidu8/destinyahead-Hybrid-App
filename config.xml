@@ -10,13 +10,14 @@
   <name>Destinyahead.in</name>
 
   <description>
-      Hybrid App for your favourite site.
+      Now enjoy your favourite site in your smart phone with our hybrid app.
   </description>
 
   <author href="https://destinyahead.in" email="mvn@destinyahead.in">
       M Venkat Naidu
   </author>
    <plugin name="cordova-plugin-whitelist" version="1" />
+    <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
