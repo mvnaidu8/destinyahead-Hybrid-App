@@ -50,10 +50,107 @@
 					<li><a href="portifolia.html"><i class="glyphicon glyphicon-briefcase"></i> Portifolia </a></li>
 					<li><a href="#" class="menu"><i class="glyphicon glyphicon-duplicate"></i> pages<span class="glyphicon glyphicon-menu-down"></span></a>
 						<ul class="nav-sub">
-							<li><a href="#small-dialog" class="sign-in popup-top-anim"><i class="glyphicon glyphicon-user"></i> login</a></li>                                             
-							<li><a href="#small-dialog1" class="sign-in popup-top-anim"><i class="glyphicon glyphicon-edit"></i> Sign Up</a></li>																								
-							<li><a href="codes.html"><i class="glyphicon glyphicon-list-alt"></i> Short Codes</a></li> 
+							<select id="help-select">
+    <option value="default">Need help?</option>
+    <option value="article">Show me a helpful article</option>
+    <option value="video">Show me a helpful video</option>
+    <option value="search">Search for other topics</option>
+</select>
 						</ul>
+						<!--testing -->
+						<script type="text/javascript">
+							$('#help-select').on('change', function (e) {
+
+    var url;
+
+    switch (this.value) {
+
+        case "article":
+            url = "https://cordova.apache.org/docs/en/latest/"
+                        + "reference/cordova-plugin-inappbrowser/index.html";
+            break;
+
+        case "video":
+            url = "https://youtu.be/F-GlVrTaeH0";
+            break;
+
+        case "search":
+            url = "https://www.google.com/#q=inAppBrowser+plugin";
+            break;
+    }
+
+    showHelp(url);
+
+});
+
+						</script>
+						<script type="text/javascript">
+							function showHelp(url) {
+
+    var target = "_blank";
+
+    var options = "location=yes,hidden=yes";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+    inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+						</script>
+						<script type="text/javascript">
+							function loadStartCallBack() {
+
+    $('#status-message').text("loading please wait ...");
+
+}
+						</script>
+						<script type="text/javascript">
+							function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+        $('#status-message').text("");
+
+        inAppBrowserRef.show();
+    }
+
+}
+						</script>
+						<script type="text/javascript">
+							function loadErrorCallBack(params) {
+
+    $('#status-message').text("");
+
+    var scriptErrorMesssage =
+       "alert('Sorry we cannot open that page. Message from the server is : "
+       + params.message + "');"
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $('#status-message').text(
+           "Sorry we couldn't open that page. Message from the server is : '"
+           + params.message + "'");
+    }
+
+}
+						</script>
+						<!--testing -->
 						<div class="clearfix"> </div>
 						<script>
 							$( "li a.menu" ).click(function() {
