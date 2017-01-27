@@ -95,7 +95,9 @@
 						<div class="w3agent-text"> 
 							<h4>M Venkat Naidu</h4>
 							<!--inapp browser-->
-      						<a href="https://mvnaidu.in">mvnaidu.</a>
+      						<div class="content">
+            <button onclick="launchIAP('https://www.mvnaidu.in');" class="btn-lg btn-primary">mvnaidu.in</button>
+        </div>
 							<!--inapp browser-->
 							<p><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:mvn@destinyahead.in"> mvn@destinyahead.in</a></p>
 							<p><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Srikakulam, Andhra Pradesh, India</p>
@@ -134,6 +136,38 @@
 					<div class="clearfix"> </div>
 				</div>
 				<!-- //agents --> 
+				<script type="text/javascript">
+        var iab = null;
+
+        function loadStart(event) {
+            // Event object has event.type & event.url properties
+            alert('Loading started');
+        }
+
+        function loadStop(event) {
+            alert('Loading stopped');
+        }
+
+        function loadError(event) {
+            alert(event.type + ' - ' + event.message);
+        }
+
+        function onClose(event) {
+            alert('Browser Closed');
+            iab.removeEventListener('loadstart', loadStart);
+            iab.removeEventListener('loadstop', loadStop);
+            iab.removeEventListener('loaderror', loadError);
+            iab.removeEventListener('exit', onClose);
+        }
+
+        function launchIAP(url) {
+            iab = window.open(url, '_blank ', 'location = yes ');
+            iab.addEventListener('loadstart', loadStart);
+            iab.addEventListener('loadstop', loadStop);
+            iab.addEventListener('loaderror', loadError);
+            iab.addEventListener('exit', onClose);
+        }
+    </script>
 	<!-- menu-js -->
 	<script src="js/classie.js"></script>
 	<script src="js/main.js"></script>
