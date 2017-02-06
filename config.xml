@@ -17,7 +17,8 @@
       M Venkat Naidu
   </author>
 
-   <plugin name="cordova-plugin-whitelist" version="1" />
+   <content src="index.html" />
+   <plugin name="cordova-plugin-whitelist" spec="1" />
    <plugin name="cordova-plugin-splashscreen" />
    <plugin name="cordova-plugin-inappbrowser" />
 
@@ -31,12 +32,12 @@
 
   <platform name="android" />
   	<icon src="icon.png" />
-	<icon src="pics/ldpi.png" platform="android" qualifier="ldpi" />
-	<icon src="pics/mdpi.png" platform="android" qualifier="mdpi" />
-	<icon src="pics/hdpi.png" platform="android" qualifier="hdpi" />
-	<icon src="pics/xhdpi.png" platform="android" qualifier="xhdpi" />
-	<icon src="pics/xxhdpi.png" platform="android" qualifier="xxhdpi" />
-	<icon src="pics/fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />
+	<icon src="res/mipmap-ldpi/ic_launcher.png" platform="android" qualifier="ldpi" />
+        <icon src="res/mipmap-mdpi/ic_launcher.png" platform="android" qualifier="mdpi" />
+        <icon src="res/mipmap-hdpi/ic_launcher.png" platform="android" qualifier="hdpi" />
+        <icon src="res/mipmap-xhdpi/ic_launcher.png" platform="android" qualifier="xhdpi" />
+        <icon src="res/mipmap-xxhdpi/ic_launcher.png" platform="android" qualifier="xxhdpi" />
+        <icon src="res/mipmap-xxxhdpi/ic_launcher.png" platform="android" qualifier="fr-xxhdpi" />
  	
  	<splash src="splash.png" />
 </widget>
